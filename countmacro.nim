@@ -8,13 +8,13 @@ macro countfromto(arg: untyped): untyped =
         echo "incorrect nim node seperating numbers"
     let startNum = arg[1]
     let endNum = arg[2]
-    result = quote do:
+    return quote do:
         for i in `startNum`..`endNum`:
             echo i
         
 
 dumptree(3..5)
 
-countfromto(3..5)
+countfromto(1..10)
 
 countfromto(3==5)
