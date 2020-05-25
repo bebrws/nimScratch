@@ -1,6 +1,11 @@
 import macros
 
+macro dumptree(arg: untyped): untyped =
+    echo arg.treeRepr
+
 macro countfromto(arg: untyped): untyped =
+    if arg[0] != ident(".."):
+        echo "incorrect nim node seperating numbers"
     let startNum = arg[1]
     let endNum = arg[2]
     result = quote do:
@@ -8,4 +13,8 @@ macro countfromto(arg: untyped): untyped =
             echo i
         
 
+dumptree(3..5)
+
 countfromto(3..5)
+
+countfromto(3==5)
