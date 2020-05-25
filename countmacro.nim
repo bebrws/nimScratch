@@ -6,6 +6,7 @@ macro dumptree(arg: untyped): untyped =
 macro countfromto(arg: untyped): untyped =
     if arg[0] != ident(".."):
         echo "incorrect nim node seperating numbers"
+        return
     let startNum = arg[1]
     let endNum = arg[2]
     return quote do:
